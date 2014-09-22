@@ -1,0 +1,54 @@
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+
+# Site settings
+title: "In Between"
+description: > # this means to ignore newlines until "email:"
+   Middleware anyone ?
+
+email: guillaume.sauthier@gmail.com
+#blog logos
+logo: "/assets/images/guillaume.jpg"
+logo_letter: "/assets/images/in-between.jpg"
+# blog cover
+cover: "/assets/images/100_7927.jpg"
+
+name: 'Guillaume Sauthier'
+author: 'Guillaume Sauthier'
+author_image: "/assets/images/guillaume-bw.jpeg"
+
+paginate:	5
+
+url: "http://sauthieg.github.io" # the base hostname & protocol for your site
+baseurl: ""
+
+# social icons and sharing options
+social:
+  - icon:	twitter
+    url:	https://twitter.com/sauthieg
+    desc: Follow me on twitter
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
+#  - icon:	facebook
+#    url:	https://facebook.com/???
+#    desc: Connect with me facebook
+#    share_url: //www.facebook.com/sharer.php
+#    share_title: ?t=
+#    share_link: "&amp;u="
+
+  - icon:	github
+    url:	https://github.com/sauthieg
+    desc:	Fork me on github
+    share_url:
+    share_title:
+    share_link:
+
+  - icon:	google-plus
+    url:	https://plus.google.com/u/0/+GuillaumeSauthier/posts
+    desc:	Add me on google+
+    share_url:
+    share_title:
+    share_link:
