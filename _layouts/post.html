@@ -101,6 +101,9 @@
             {% endfor %}
           </section>
         </footer>
+        {% if page.comments %}
+          {% include disqus/comments.html %}
+        {% endif %}
         <div class="bottom-teaser cf">
           <div class="isLeft">
             <h5 class="index-headline featured"><span>Written by</span></h5>

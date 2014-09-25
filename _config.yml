@@ -28,6 +28,8 @@ paginate:	5
 url: "http://sauthieg.github.io" # the base hostname & protocol for your site
 excerpt_separator: "<!-- more -->"
 
+comments: true
+
 baseurl: ""
 
 # social icons and sharing options
