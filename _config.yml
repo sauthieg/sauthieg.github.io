@@ -20,6 +20,8 @@ cover: "/assets/images/100_7927.jpg"
 name: 'Guillaume Sauthier'
 author: 'Guillaume Sauthier'
 author_image: "/assets/images/guillaume-bw.jpeg"
+author_bio: >
+   Senior software engineer, open source believer
 
 paginate:	5
 
