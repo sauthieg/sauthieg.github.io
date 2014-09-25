@@ -24,6 +24,8 @@ author_image: "/assets/images/guillaume-bw.jpeg"
 paginate:	5
 
 url: "http://sauthieg.github.io" # the base hostname & protocol for your site
+excerpt_separator: "<!-- more -->"
+
 baseurl: ""
 
 # social icons and sharing options
