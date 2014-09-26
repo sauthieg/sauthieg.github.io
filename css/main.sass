@@ -188,6 +188,37 @@ a
         margin-bottom: 0.3125rem
         text-decoration: none
         cursor: pointer
+    .article-item
+      display: inline-block
+      .date-column
+        font-family: "Montserrat", sans-serif
+        float: left
+        width: 20%
+        @include box-sizing(border-box)
+        @include respond-to(800)
+          width: 100%
+          padding-bottom: $rs*2
+        .day
+          display: block
+          text-align: center
+          font-size: 3.25rem
+          font-weight: 800
+          color: steelblue
+        .month-year
+          display: block
+          text-align: center
+          font-size: 1rem
+          color: #000
+          font-size: 0.875rem
+          text-transform: uppercase
+      .post-column
+        float: right
+        width: 80%
+        @include box-sizing(border-box)
+        @include respond-to(800)
+          width: 100%
+          padding-bottom: $rs*2
+
 
 .container.featured
   padding-bottom: 40px
@@ -630,25 +661,31 @@ code
 .gist pre
   font-size: 12px
 
-.tag-box
+.markers
   list-style: none
   margin: 0px
-  a
-    display: inline-block
-    padding: 0.3125rem 0.9375rem
-    margin-right: 0.1875rem
-    color: #666665
-    border: 0.0625rem solid black
-    border-radius: 0.250rem
-    margin-bottom: 0.3125rem
-    text-decoration: none
-    line-height: initial
-    &:hover
+  padding-left: 0px
+  li
+    display: inline
+    a
+      display: inline-block
+      padding: 0.3125rem 0.9375rem
+      margin-right: 0.1875rem
+      color: #666665
+      border: 0.0625rem solid black
+      border-radius: 0.250rem
+      margin-bottom: 0.3125rem
+      text-decoration: none
+      line-height: initial
       cursor:pointer
-    span
-      font-size: 75%
-      vertical-align: super
-      color: black
+      .superscript
+        font-size: 75%
+        vertical-align: super
+        color: black
+  .center-tags
+    text-align:center
+    li
+      margin-left: 1px
 
 .post-list
   list-style: none

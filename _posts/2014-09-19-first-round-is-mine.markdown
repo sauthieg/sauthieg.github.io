@@ -4,7 +4,8 @@ title:  "First round is mine!"
 date:   2014-09-19
 image: /assets/article_images/first-round-is-mine/IMGA0885.jpeg
 comments: false
-tags: featured
+featured: true
+categories: misc
 ---
 
 # Wow,
