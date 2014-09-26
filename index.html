@@ -46,43 +46,40 @@ layout: default
         });
 
     }(jQuery));
+    /* round time values */
+    $(document).ready(function() {
+    $(".time").text(function (index, value) {
+      return Math.round(parseFloat(value));
+    });
+    $(".hour").text(function (index, value) {
+      return Math.floor(parseFloat(value));
+    });
+  });
 </script>
 
 <main class="content" role="main">
 
-    <h5 class="index-headline featured"><span>Featured</span></h5>
-
-    <div class="container featured">
-      {% for post in site.tags.featured %}
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-          <div class="article-item">
-            <header class="post-header">
-              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
-            </header>
-            <section class="post-excerpt" itemprop="description">
-              <p>{{ post.excerpt | strip_html | truncatewords: 50 }}<a href="{{ post.url }}">...</a></p>
-            </section>
-            <div class="post-meta">
-              <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
-  <!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
-            </div>
-          <div>
-        </article>
-      {% endfor %}
-    </div>
-
-    <h5 class="index-headline normal"><span>Regular</span></h5>
+    <h5 class="index-headline normal"><span>Posts</span></h5>
 
     <div class="cf frame">
       {% for post in paginator.posts %}
+
+        {% if site.readtime %}
+          {% if site.wpm %}
+            {% assign readtime = post.content | strip_html | number_of_words | append: '.0' | divided_by:site.wpm %}
+          {% else %}
+            {% assign readtime = post.content | strip_html | number_of_words | append: '.0' | divided_by:180 %}
+          {% endif %}
+        {% endif %}
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
           <div class="article-item">
             <header class="post-header">
-              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
+              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }} <small>{{ post.subtitle }}</small></a></h2>
             </header>
             <section class="post-excerpt" itemprop="description">
               <p>{{ post.excerpt | strip_html | truncatewords: 50 }}<a href="{{ post.url }}">...</a></p>
             </section>
+            <div class="post-meta-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag }} category"><i class="fa fa-tags"></i> {{ tag }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}{% if site.readtime %}&nbsp;<a><i class="fa fa-clock-o"></i> {% if readtime > 1 and readtime < 1.5 %}1 minute read{% endif %}{% if readtime > 1.5 %}<span class="time">{{ readtime }}</span> minutes read{% endif %}{% if readtime < 1 %}Less than 1 minute read{% endif %}</a>{% endif %}{% if post.featured %}&nbsp;<a href="{{ site.url }}/featured/"><i class="fa fa-star-half-o fa-spin"></i> Featured</a>{% endif %}</div>
             <div class="post-meta">
               <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
 <!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->

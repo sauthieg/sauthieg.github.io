@@ -134,7 +134,7 @@ a
 
 .content
   width: 100%
-  max-width: 800px
+  max-width: 900px
   margin: 0 auto
   @include box-sizing(border-box)
   @include respond-to(800)
@@ -157,6 +157,10 @@ a
         color: #333332
         &:hover
           text-decoration: none
+        small
+          font-weight: 400
+          font-size: 65%
+          color: #777
     .post-excerpt
       letter-spacing: -0.02em
       font-weight: 300
@@ -173,6 +177,18 @@ a
         text-decoration: none
         &:hover
           text-decoration: underline
+    .post-meta-tags
+      a
+        display: inline-block
+        padding: 0.3125rem 0.9375rem
+        margin-right: 0.1875rem
+        color: #666665
+        border: 0.0625rem solid black
+        border-radius: 0.250rem
+        margin-bottom: 0.3125rem
+        text-decoration: none
+        cursor: pointer
+
 .container.featured
   padding-bottom: 40px
 
@@ -610,6 +626,45 @@ code
   border: 1px solid #e8e8e8
   border-radius: 3px
   background-color: #eef
+
+.gist pre
+  font-size: 12px
+
+.tag-box
+  list-style: none
+  margin: 0px
+  a
+    display: inline-block
+    padding: 0.3125rem 0.9375rem
+    margin-right: 0.1875rem
+    color: #666665
+    border: 0.0625rem solid black
+    border-radius: 0.250rem
+    margin-bottom: 0.3125rem
+    text-decoration: none
+    line-height: initial
+    &:hover
+      cursor:pointer
+    span
+      font-size: 75%
+      vertical-align: super
+      color: black
+
+.post-list
+  list-style: none
+  font-style: bold
+  a
+    text-decoration: none
+    color: #666665
+  .subtitle
+    display: inline
+    font-style: italic
+    //font-weight: 400
+    //font-size: 65%
+    //color: #777
+  .entry-date
+    text-transform: uppercase
+    float: right
 
 code
   padding: 1px 5px

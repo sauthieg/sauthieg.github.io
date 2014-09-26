@@ -30,6 +30,11 @@ excerpt_separator: "<!-- more -->"
 
 comments: true
 
+# readtime properties
+# ---------------------
+readtime: true
+wpm:      200
+
 baseurl: ""
 
 # social icons and sharing options
