@@ -5,7 +5,7 @@ subtitle: "Part 1: Use cases"
 date:   2014-09-26
 categories: openig
 featured: true
-tags: guide, openig, usecases, openid-connect, oauth2, saml, rest
+tags: [guide, openig, usecases, openid-connect, oauth2, saml, rest]
 image: /assets/article_images/introduction-to-openig-p1/IMG_0919.jpg
 comments: true
 #published: false
