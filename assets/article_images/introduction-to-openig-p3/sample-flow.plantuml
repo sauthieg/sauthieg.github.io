@@ -1,0 +1,40 @@
+@startuml
+
+hide footbox
+
+box "OpenIG" #lightgrey
+	participant "OpenIG Gateway" as Servlet << Servlet >>
+	participant HelloWorldChain as Chain << Chain >>
+	participant AddHelloHeader as Filter << Filter >>
+	participant HelloHandler as Handler << Handler >>
+end box
+
+[-> Servlet: Incoming request
+
+activate Servlet
+
+Servlet->Servlet: Setup a new\nExchange
+Servlet -> Chain: handle(exchange)
+activate Chain
+
+Chain -> Filter: filter(exchange, handler)
+activate Filter
+
+Filter -> Handler: filter(exchange, handler)
+activate Handler
+
+Handler -> Handler: print "Hello"
+
+Handler -> Filter
+deactivate Handler
+
+Filter -> Filter: add `X-Hello` header
+Filter -> Chain
+deactivate Filter
+
+Chain -> Servlet
+deactivate Chain
+
+[<- Servlet: Outgoing response
+deactivate Servlet
+@enduml
