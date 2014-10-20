@@ -10,7 +10,7 @@ comments: true
 ---
 
 As transformations are dictated by the set of filters/handlers in your
-configuration, they not always trivial, it's becoming very important quickly
+configuration, they are not always trivial, it's becoming very important quickly
 to capture the messages at different phases of the processing.
 
 <!-- more -->
@@ -20,7 +20,7 @@ to capture the messages at different phases of the processing.
 First thing to understand when trying to debug a configuration is "where the
 hell are all my messages going ?" :)
 
-This achievable simply by activating `DEBUG` traces in your `LogSink` heap object:
+This is achievable simply by activating `DEBUG` traces in your `LogSink` heap object:
 
 {% gist sauthieg/9622ec69b2db77c99b51 %}
 
@@ -48,7 +48,7 @@ Being a filter, it has to be installed as part of a Chain:
 {% gist sauthieg/b4658a6b111620f99705 %}
 
 It is usually best placed either as the OpenIG entry point (the first element
-to be invoked), that helps to see what the User-Agent send and receive (as
+to be invoked), that helps to see what the User-Agent sends and receives (as
 it's perceived by OpenIG) or just before a `ClientHandler` (that represents
 a sort of endpoint, usually your protected application).
 
