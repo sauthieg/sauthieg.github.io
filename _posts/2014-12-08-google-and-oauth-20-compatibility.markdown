@@ -16,6 +16,11 @@ dirty to track down the problem up to the source. Here is the story :)
 
 <!-- more -->
 
+<div style="font-weight: bolder;color: firebrick;text-align: center;font-size: larger;">
+ This issue has been fixed the 12th of December 2014
+ (<a href="http://stackoverflow.com/a/27434915/2831176">see stack overflow answer</a>).
+</div>
+
 # Everything starts with ...
 
 ... a failure, at least I had the screenshot of a nice Exception, pretty explicit by the way:
