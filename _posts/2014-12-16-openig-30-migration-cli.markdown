@@ -24,7 +24,7 @@ WED DEC 17 16:46:03 CET 2014 (WARNING) file:/.../config/config.json
 ------------------------------
 ```
 
-Don't worry, this messages are only warnings, your old configurations are still parseable
+Don't worry, these messages are only warnings, your old configurations are still parseable
 by OpenIG 3.1: everything is backward compatible, we just warn you that, in the next
 major release, theses elements are likely to be unsupported (in other words, they
 would probably be ignored).

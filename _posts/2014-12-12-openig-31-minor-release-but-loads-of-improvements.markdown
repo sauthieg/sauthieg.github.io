@@ -120,11 +120,11 @@ And now:
 
 Notice that most of this tedious work can be done with the [OpenIG Migration Tool][migration].
 
-**I did not lied when I said it was Christmas ;)**
+**I did not lie when I said it was Christmas ;)**
 
 # Console Logs
 
-I can't resists to show you an excerpt of your new logs (at least when you choose a `ConsoleLogSink`):
+I can't resist to show you an excerpt of your new logs (at least when you choose a `ConsoleLogSink`):
 
 ```
 TUE DEC 02 17:36:10 CET 2014 (INFO) _Router
@@ -156,13 +156,13 @@ TUE DEC 02 17:36:46 CET 2014 (WARNING) {HttpClient}/heap/2/config/httpClient
 ```
 
 The logs are now much more readable and concise: the first line is a header line
-and gives you the log timestamp (date formatted accordingly to your Locale), the
+and gives you the log timestamp (date formatted according to your Locale), the
 message's log level and its source name (name of the heap object that produced
 the message), then you have the message itself until the blank line separator is
 reached.
 
 The attentive reader noticed that Exception messages are handled in a different way:
-each line correspond to a summary of an exception in the chain, up to the root cause.
+each line corresponds to a summary of an exception in the chain, up to the root cause.
 
 If the `ConsoleLogSink` is configured with the `DEBUG` level, the full exception
 stack-trace will be printed, instead of just the condensed rendering.
@@ -190,7 +190,7 @@ On the performance side, there were also a number of enhancements:
 
 OK, we couldn't resist to add at least a few new features in OpenIG 3.1!
 
-The most core one is [decorator support][decorator]: this feature enable an easy
+The most core one is [decorator support][decorator]: this feature enables an easy
 way to add behaviours to existing heap objects without having to change the code
 of theses objects.
 
