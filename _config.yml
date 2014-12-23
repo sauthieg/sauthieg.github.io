@@ -13,7 +13,7 @@ description: > # this means to ignore newlines until "email:"
 email: guillaume.sauthier@gmail.com
 #blog logos
 logo: "/assets/images/guillaume.jpg"
-logo_letter: "/assets/images/in-between.jpg"
+logo_letter: "/assets/images/maple.png"
 # blog cover
 cover: "/assets/images/100_7927.jpg"
 
