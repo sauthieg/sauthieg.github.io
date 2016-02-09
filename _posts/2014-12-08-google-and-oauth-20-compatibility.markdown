@@ -50,14 +50,14 @@ At that point, it's time to open your IDE and debug OpenIG, this way we'll see w
 
 No wonder, it's really receiving a successful access token response of the following form:
 
-```json
+~~~json
 {
   "access_token": "ya29.1gD56tBWtHW3K7oZ0FINTnsqa4VYiE2YGZeQXgJ4ID79E-mZxNWoyYi7pKrs_Vyxj8FZbuxh_RGTJw",
   "token_type": "Bearer",
   "expires_in": "3600",
   "refresh_token": "1/dGjGYC7sDFaBwpdUVpkJP2mYFYTU8HAh7T6szsKGYTs"
 }
-```
+~~~
 
 `expires_in` is really a `String`, even if semantically it's a `Number` !
 
@@ -73,13 +73,13 @@ Sad...
 
 As per the [OAuth 2.0 Spec][oauth2], a successful response looks like the following:
 
-```
+~~~
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Cache-Control: no-store
 Pragma: no-cache
-```
-```json
+~~~
+~~~json
 {
   "access_token":"2YotnFZFEjr1zCsicMWpAA",
   "token_type":"example",
@@ -87,14 +87,14 @@ Pragma: no-cache
   "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA",
   "example_parameter":"example_value"
 }
-```
+~~~
 
 They even give a [syntax](https://tools.ietf.org/html/rfc6749#appendix-A.14) for
 `expires_in` attribute:
 
-```
+~~~
 expires-in = 1*DIGIT
-```
+~~~
 
 Pretty simple, though ?
 
@@ -111,7 +111,7 @@ They seem to have **updated their OAuth 2.0 service implementation**.
 
 Take a look at the [OpenID Connect Discovery](https://accounts.google.com/.well-known/openid-configuration) endpoint returned JSON:
 
-```json
+~~~json
 {
   "issuer": "accounts.google.com",
   "authorization_endpoint": "https://accounts.google.com/o/oauth2/auth",
@@ -127,7 +127,7 @@ Take a look at the [OpenID Connect Discovery](https://accounts.google.com/.well-
   "subject_types_supported": [ "public" ],
   "id_token_alg_values_supported": [ "RS256" ]
 }
-```
+~~~
 
 And, more closely to the `token_endpoint` value: it's using a `v3` API.
 It's not even advertised on the [Google API Explorer][explorer] (*yet ?*).

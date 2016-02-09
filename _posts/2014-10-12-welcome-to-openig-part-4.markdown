@@ -79,12 +79,12 @@ For this case, the only solution is to start your OpenIG with a couple of
 system properties that will activate deep traces of the http client library
 we're using: [Apache HTTP Client][http-client].
 
-``` sh
+~~~ sh
 >$ bin/catalina.sh -Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog \
                    -Dorg.apache.commons.logging.simplelog.log.httpclient.wire=debug \
                    -Dorg.apache.commons.logging.simplelog.log.org.apache.commons.httpclient=debug \
                    run
-```
+~~~
 
 See the [HTTP Client Logging page][hc-logging] for more informations.
 

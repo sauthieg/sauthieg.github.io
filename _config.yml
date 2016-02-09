@@ -1,9 +1,6 @@
 # Build settings
-markdown: redcarpet
-highlighter: pygments
 
-redcarpet:
-  extensions: [ "with_toc_data", "xhtml", "autolink" ]
+gems: [ jekyll-paginate, jekyll-gist ]
 
 # Site settings
 title: "In Between"

@@ -15,14 +15,14 @@ what are all theses deprecation warning messages you see on the logs ?
 
 <!-- more -->
 
-```
+~~~
 WED DEC 17 16:46:03 CET 2014 (WARNING) file:/.../config/config.json
 The configuration field heap/objects has been deprecated. Heap objects should now be listed directly in the top level "heap" field, e.g. { "heap" : [ objects... ] }.
 ------------------------------
 WED DEC 17 16:46:03 CET 2014 (WARNING) file:/.../config/config.json
 [/] The 'handlerObject' attribute is deprecated, please use 'handler' instead
 ------------------------------
-```
+~~~
 
 Don't worry, these messages are only warnings, your old configurations are still parseable
 by OpenIG 3.1: everything is backward compatible, we just warn you that, in the next
@@ -47,17 +47,17 @@ At time of writing, the [openig-migration][github] toolkit supports the followin
 As there is still no binary available, you have to build the binary yourself (make
 sure you use a JDK 8 at both compile and runtime):
 
-```sh
+~~~sh
 git clone https://github.com/sauthieg/openig-migration.git
 cd openig-migration
 mvn clean install
-```
+~~~
 
 Then, you have to execute it: it expects a path to the JSON document to migrate:
 
-```sh
+~~~sh
 java -jar target/openig-migration-1.0-SNAPSHOT-jar-with-dependencies.jar .../config.json
-```
+~~~
 
 This command line outputs the transformed JSON on `System.out`.
 
@@ -65,7 +65,7 @@ This command line outputs the transformed JSON on `System.out`.
 
 This example is extracted from OpenIG 3.0 documentation:
 
-```json
+~~~json
 {
   "heap": {
     "objects": [
@@ -140,11 +140,11 @@ This example is extracted from OpenIG 3.0 documentation:
   },
   "handlerObject": "DispatchHandler"
 }
-```
+~~~
 
 ... and is migrated to:
 
-```json
+~~~json
 {
   "heap": [
     {
@@ -212,7 +212,7 @@ This example is extracted from OpenIG 3.0 documentation:
   ],
   "handler": "DispatchHandler"
 }
-```
+~~~
 
 Notice the now inlined object declaration that make it easier to follow the execution
 flow and understand what happen to your request. The empty un-necessary elements

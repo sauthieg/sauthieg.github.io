@@ -42,7 +42,7 @@ by the child route defined components:
 Assuming that `config.json` defines a `ClientHandler` instance named `Forwarder`, someone
 could write in his own route that would includes this `Chain`:
 
-```json
+~~~json
 {
   "name": "OutgoingChain",
   "type": "Chain",
@@ -51,7 +51,7 @@ could write in his own route that would includes this `Chain`:
     "handler": "Forwarder"
   }
 }
-```
+~~~
 
 This feature makes it very easy to share pieces of configuration logic in a common/shared
 place (the parent route or `config.json`).
@@ -76,7 +76,7 @@ That's utmost useful for multiple reasons:
 
 The `heap/objects` array contains all of your route components (declaration, configuration and bindings with other components). One of the declared `Handler` has to be referenced through the `handler` top level attribute:
 
-```json
+~~~json
 {
   "heap": {
     "objects": [
@@ -91,7 +91,7 @@ The `heap/objects` array contains all of your route components (declaration, con
   },
   "handler": "EntryPoint"
 }
-```
+~~~
 
 Notice that the `handler` attribute is **required**, an error will be thrown if not set.
 
@@ -99,11 +99,11 @@ Notice that the `handler` attribute is **required**, an error will be thrown if 
 
 Unlike `config.json`, a route is **conditionally invoked** given the result of a condition:
 
-```json
+~~~json
 {
   "condition": "${exchange.request.form['forward'] == true}"
 }
-```
+~~~
 
 The `condition` is expressed as an `Expression` and gives you access to
 [all of the properties][exchange-model] of the `Exchange` being processed. It has
@@ -114,20 +114,21 @@ the `Exchange` (if proposed).
 
 Here are some examples of useful conditions:
 
- * Only requests whose paths are starting with `/wordpress/`:
+* Only requests whose paths are starting with `/wordpress/`:
 
-  ```json
-{
-  "condition": "${matches(exchange.request.uri, '^/wordpress/')}"
-}
-  ```
- * Requests paths starting with a value or another:
+  ~~~ json
+  {
+    "condition": "${matches(exchange.request.uri, '^/wordpress/')}"
+  }
+  ~~~
 
-  ```json
+* Requests paths starting with a value or another:
+
+  ~~~ json
   {
     "condition": "${matches(exchange.request.uri.path, '^(/carousel|/openid)')}"
   }
-  ```
+  ~~~
 
 ## Uri Rebasing
 
@@ -151,10 +152,10 @@ And deactivating as simple as removing that file.
 Notice that you can simply rename the file with a different extension to have it
 ignored by the system (and thus uninstalled if it was previously active):
 
-```
+~~~
 routes/
   wordpress.json -> wordpress.json.disabled
-```
+~~~
 
 ## Scan interval
 
@@ -173,21 +174,21 @@ For example, given the following `routes/` folder content (no `name` attribute
 defined in any of the routes), the routes would be tried in this order: `00-main.json`,
 `next.json` and `zz-default.json`.
 
-```
+~~~
 routes/
   00-main.json    (1)
   zz-default.json (3)
   next.json       (2)
-```
+~~~
 
 You can override the default system provided name (based on the file name) by specifying
 a `name` attribute in the route:
 
-```json
+~~~json
 {
   "name": "my-name"
 }
-```
+~~~
 
 # Conclusion
 

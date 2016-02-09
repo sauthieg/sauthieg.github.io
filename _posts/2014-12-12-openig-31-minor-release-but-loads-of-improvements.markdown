@@ -47,7 +47,7 @@ Here is the list of improvements in regards to the ease of configuration:
 
 Better with an example, here is your config before:
 
-```json
+~~~json
 {
   "heap": {
     "objects": [
@@ -85,11 +85,11 @@ Better with an example, here is your config before:
   },
   "handler": "Chain"
 }
-```
+~~~
 
 And now:
 
-```json
+~~~json
 {
   "handler": {
     "type": "Chain",
@@ -116,7 +116,7 @@ And now:
     }
   }
 }
-```
+~~~
 
 Notice that most of this tedious work can be done with the [OpenIG Migration Tool][migration].
 
@@ -126,7 +126,7 @@ Notice that most of this tedious work can be done with the [OpenIG Migration Too
 
 I can't resist to show you an excerpt of your new logs (at least when you choose a `ConsoleLogSink`):
 
-```
+~~~
 TUE DEC 02 17:36:10 CET 2014 (INFO) _Router
 Added route 'oauth2-resources.json' defined in file '/Users/guillaume/tmp/demo/config/routes/oauth2-resources.json'
 ------------------------------
@@ -153,7 +153,7 @@ TUE DEC 02 17:36:19 CET 2014 (ERROR) _Router
 TUE DEC 02 17:36:46 CET 2014 (WARNING) {HttpClient}/heap/2/config/httpClient
 [/heap/2/config/httpClient/config] The 'truststore' attribute is deprecated, please use 'trustManager' instead
 ------------------------------
-```
+~~~
 
 The logs are now much more readable and concise: the first line is a header line
 and gives you the log timestamp (date formatted according to your Locale), the
@@ -205,7 +205,7 @@ messages flowing in and out of a given Handler, you had to:
 Definitely not user-friendly, and in 3.0 there was no inline heap object declaration,
 making this process even more tedious :'(
 
-```json
+~~~json
 {
   "heap": {
     "objects": [
@@ -241,11 +241,11 @@ making this process even more tedious :'(
     ]
   }
 }
-```
+~~~
 
 Now, in 3.1, you just add a `capture` decorator in your observed object declaration and you're done!
 
-```json
+~~~json
 {
   "heap": [
     {
@@ -255,7 +255,7 @@ Now, in 3.1, you just add a `capture` decorator in your observed object declarat
     }
   ]
 }
-```
+~~~
 
 You just added a `capture` decorator to the `Observed` object, now for each object
 invokation, the decorator will be called and will do its job (here capturing the
@@ -277,14 +277,14 @@ notifications when observed components (or routes) are traversed.
 This is just as simple as adding an audit 'tag' to your route configuration, (this is
 used to qualify the notifications):
 
-```json
+~~~json
 {
   "handler": {
     "...": "..."
   },
   "audit": [ "wordpress" ]
 }
-```
+~~~
 
 Then, you just add a route that activates the `MonitoringEndpointHandler` (a simple
 audit agent), just like what @markcraig [explained in his blog](http://marginnotes2.wordpress.com/2014/12/01/openig-a-new-audit-framework/).

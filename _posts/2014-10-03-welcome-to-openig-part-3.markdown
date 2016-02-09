@@ -51,6 +51,7 @@ OpenIG offers a simple, but powerful, API to process exchanges:
 ## Handler
 
 What do the doc says about `Handler.handle()` ?
+
 > Called to request the handler respond to the request.
 >
 > A handler that doesn't hand-off an exchange to another handler downstream
@@ -68,6 +69,7 @@ In other words, it acts as a **client** to the protected resource (hence the nam
 ## Filter
 
 Again, what do the doc says about `Filter.filter()` ?
+
 > Filters the request and/or response of an exchange.
 >
 > Initially, exchange.request contains the request to be filtered. To pass the
