@@ -5,6 +5,7 @@ date: "2016-01-25"
 image: /assets/article_images/san-diego.jpeg
 categories: misc
 tags: [misc]
+comments: true
 ---
 
 This has been a year since my last post...
