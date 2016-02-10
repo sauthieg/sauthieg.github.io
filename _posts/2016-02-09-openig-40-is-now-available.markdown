@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "OpenIG 4.0 is now available"
-date: "2016-02-09 23:03:56"
+date: "2016-02-09"
 image: /assets/article_images/forgerock-wall.jpg
 categories: openig
 tags: [openig, release]
