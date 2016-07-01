@@ -46,15 +46,15 @@ try {
 }
 ~~~
 
-Dead simple, isn't it ?
+Dead simple, isn't it?
 
 The strangest thing happened when we engaged a timeout on the promise
 (using [`getOrThrow(10, SECONDS)`][get-or-throw]). After the timeout expired,
-the Promise unblocked and we saw a real `Response` inside (with an associated `SocketTimeoutException`), just like if it was already there, but without the
+the Promise unblocked and we saw a real `Response` inside (with an associated `SocketTimeoutException`), just as if it was already there, but without the
 promise triggering callbacks.
 
 How could this be possible? Having a thread waiting for a result of another HTTP
-request, when the http client library in use (Apache HttpAsyncClient in our case)
+request, when the HTTP client library in use (Apache HttpAsyncClient in our case)
 is supposed to handle threads by itself (and correctly).
 
 Well, we had to dig, but we found the key deep inside the HTTP library:
@@ -65,22 +65,22 @@ final int i = Math.abs(this.currentWorker++ % this.workerCount);
 this.dispatchers[i].addChannel(entry);
 ~~~
 
-### What is this code doing ?
+### What is this code doing?
 
 This code is called when an NIO event comes back into the HTTP library (such as
 the content of a response). The code basically selects one of the worker threads
 to be responsible for processing the response.
 
-### Is this wrong ?
+### Is this wrong?
 
-Depends on your point of view ;) Initially, I was thinking that it was plain
+Depends on your point of view ;) Initially, I thought that it was plain
 wrong: this code doesn't know if the thread is busy doing something else or blocked.
 
 After a bit more thought, it’s not that obvious - because responses are processed
 asynchronously, the request and response flows are clearly decoupled, so there is
 no easy way to know if the requestor thread is the same thread as the response thread.
 
-### So what happened ?
+### So what happened?
 
 The scenario is quite simple:
 
@@ -134,8 +134,8 @@ repository if you want to play with that code by yourself.
 Avoid the blocking call and use `Promise` with appropriately typed callbacks in
 every step of the processing.
 
-Registering callbacks (`ResultHandler`, `Function` or `AsyncFunction`) instead
-of actively waiting for a result/failure prevents any form of thread blockage.
+To prevent any form of thread blockage, register callbacks (`ResultHandler`,
+`Function` or `AsyncFunction`) instead of actively waiting for a result/failure.
 
 So now, the caller thread is not blocked. It will be available for its next
 task after all callbacks are registered on the promise.
@@ -182,7 +182,7 @@ trouble (and a potential victim of that threading issue) if you see code
 that uses one of the `get()` method variations on the `Promise` interface.
 
 In OpenIG, this can be in any `Filter` / `Handler` that you write by yourself, or
-in any Groovy script. So take a look at the code you execute in OpenIG: we make a
+in any Groovy script. So take a look at the code you execute in OpenIG, we make a
 point to write 100% asynchronous / non-blocking code, what about you?
 
 #### Exhaustive list of blocking methods in `Promise`
